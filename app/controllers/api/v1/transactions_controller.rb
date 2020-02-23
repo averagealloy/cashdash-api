@@ -3,7 +3,7 @@ class Api::V1::TransactionsController < ApplicationController
     before_action :set_account
 
     def index
-       @transactions = @account.transaction
+       @transactions = @account.transactions
        render json: @transactions
     end 
    
@@ -23,11 +23,11 @@ class Api::V1::TransactionsController < ApplicationController
       end
 
     end
-    
+
     private
 
     def set_account
-        @account = Account.find(params[:accoint_id])
+        @account = Account.find(params[:account_id])
     end
 
     def transaction_params
