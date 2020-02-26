@@ -19,10 +19,15 @@ class Api::V1::TransactionsController < ApplicationController
         render json: @account
       else
         render json: {error: 'you dont have the money'}
-      
       end
-
     end
+
+    def destroy
+      @transaction = Transaction.find(params["id"])
+      @account = Account.find(@transaction.account_id)
+      @transaction.destroy
+      render json: @account
+    end 
 
     private
 
