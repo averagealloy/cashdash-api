@@ -27,7 +27,7 @@ class Api::V1::AccountsController < ApplicationController
 
     def update
         account = Account.find(params[:id])
-        account.update(name: params["account"]["name"])
+        account.update(name: params['account']['name'])
         account.save
         render json: account
     end
